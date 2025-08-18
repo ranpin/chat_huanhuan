@@ -22,66 +22,63 @@
 2025-07-18 17:17:14.814 | INFO     | __main__:train:395 - 📁 模型保存在: ../training/models/huanhuan_fast
 2025-07-18 17:17:14.814 | INFO     | __main__:main:414 - 🎉 甄嬛角色模型训练完成！
 2025-07-18 17:17:14.814 | INFO     | __main__:main:415 - 📁 接下来可以运行部署脚本: python deployment/huanhuan_deploy.py
-2025-07-24 20:24:24.040 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./huanhuan_config_fast.yaml
-2025-07-24 20:24:24.048 | INFO     | __main__:load_config:165 - 配置文件加载成功: ./huanhuan_config_fast.yaml
-2025-07-24 20:24:24.065 | INFO     | __main__:setup_device:182 - 使用Apple Silicon MPS设备
-2025-07-24 20:24:24.065 | INFO     | __main__:load_model_and_tokenizer:196 - 加载分词器: Qwen/Qwen2.5-0.5B
-2025-07-24 20:24:25.392 | INFO     | __main__:load_model_and_tokenizer:207 - 加载模型: Qwen/Qwen2.5-0.5B
-2025-07-24 20:24:30.568 | INFO     | __main__:load_model_and_tokenizer:217 - 模型已移动到设备: mps
-2025-07-24 20:24:30.569 | INFO     | __main__:load_model_and_tokenizer:219 - 模型参数量: 494,032,768
-2025-07-24 20:24:30.569 | INFO     | __main__:setup_lora:230 - 配置LoRA参数
-2025-07-24 20:24:30.597 | INFO     | __main__:setup_lora:246 - 可训练参数: 86,016 (0.02%)
-2025-07-24 20:24:30.597 | INFO     | __main__:setup_lora:247 - 总参数量: 494,118,784
-2025-07-24 20:24:30.597 | INFO     | __main__:setup_training_arguments:301 - 检测到MPS设备，使用MPS优化配置
-2025-07-24 20:24:30.598 | INFO     | __main__:prepare_datasets:260 - 加载训练数据: ../data/processed/train.jsonl
-2025-07-24 20:24:30.599 | INFO     | __main__:load_conversations:76 - 加载了 40 条对话数据
-2025-07-24 20:24:30.599 | INFO     | __main__:prepare_datasets:280 - 训练集: 32 样本
-2025-07-24 20:24:30.599 | INFO     | __main__:prepare_datasets:281 - 验证集: 4 样本
-2025-07-24 20:24:30.599 | INFO     | __main__:prepare_datasets:282 - 测试集: 4 样本
-2025-07-24 20:24:30.610 | INFO     | __main__:setup_training_arguments:374 - 训练器创建完成
-2025-07-24 20:24:30.610 | INFO     | __main__:train:382 - === 开始甄嬛角色模型训练 ===
-2025-07-24 20:24:30.610 | INFO     | __main__:train:386 - 🚀 开始模型训练...
-2025-07-24 20:32:39.547 | INFO     | __main__:train:390 - 💾 保存最终模型...
-2025-07-24 20:32:41.127 | INFO     | __main__:train:394 - === 训练完成 ===
-2025-07-24 20:32:41.127 | INFO     | __main__:train:395 - 📁 模型保存在: ../training/models/huanhuan_fast
-2025-07-24 20:32:41.127 | INFO     | __main__:main:414 - 🎉 甄嬛角色模型训练完成！
-2025-07-24 20:32:41.127 | INFO     | __main__:main:415 - 📁 接下来可以运行部署脚本: python deployment/huanhuan_deploy.py
-2025-07-25 07:34:31.271 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./huanhuan_config_fast.yaml
-2025-07-25 07:34:31.278 | INFO     | __main__:load_config:165 - 配置文件加载成功: ./huanhuan_config_fast.yaml
-2025-07-25 07:34:31.302 | INFO     | __main__:setup_device:182 - 使用Apple Silicon MPS设备
-2025-07-25 07:34:31.302 | INFO     | __main__:load_model_and_tokenizer:196 - 加载分词器: Qwen/Qwen2.5-0.5B
-2025-07-25 07:34:32.445 | INFO     | __main__:load_model_and_tokenizer:207 - 加载模型: Qwen/Qwen2.5-0.5B
-2025-07-25 07:34:37.484 | INFO     | __main__:load_model_and_tokenizer:217 - 模型已移动到设备: mps
-2025-07-25 07:34:37.485 | INFO     | __main__:load_model_and_tokenizer:219 - 模型参数量: 494,032,768
-2025-07-25 07:34:37.485 | INFO     | __main__:setup_lora:230 - 配置LoRA参数
-2025-07-25 07:34:37.507 | INFO     | __main__:setup_lora:246 - 可训练参数: 86,016 (0.02%)
-2025-07-25 07:34:37.507 | INFO     | __main__:setup_lora:247 - 总参数量: 494,118,784
-2025-07-25 07:34:37.507 | INFO     | __main__:setup_training_arguments:301 - 检测到MPS设备，使用MPS优化配置
-2025-07-25 07:34:37.507 | INFO     | __main__:prepare_datasets:260 - 加载训练数据: ../data/processed/train.jsonl
-2025-07-25 07:34:37.508 | INFO     | __main__:load_conversations:76 - 加载了 40 条对话数据
-2025-07-25 07:34:37.508 | INFO     | __main__:prepare_datasets:280 - 训练集: 32 样本
-2025-07-25 07:34:37.508 | INFO     | __main__:prepare_datasets:281 - 验证集: 4 样本
-2025-07-25 07:34:37.508 | INFO     | __main__:prepare_datasets:282 - 测试集: 4 样本
-2025-07-25 07:34:37.518 | INFO     | __main__:setup_training_arguments:374 - 训练器创建完成
-2025-07-25 07:34:37.518 | INFO     | __main__:train:382 - === 开始甄嬛角色模型训练 ===
-2025-07-25 07:34:37.518 | INFO     | __main__:train:386 - 🚀 开始模型训练...
-2025-07-25 10:51:07.939 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./huanhuan_config_fast.yaml
-2025-07-25 10:51:07.946 | INFO     | __main__:load_config:165 - 配置文件加载成功: ./huanhuan_config_fast.yaml
-2025-07-25 10:51:07.986 | INFO     | __main__:setup_device:182 - 使用Apple Silicon MPS设备
-2025-07-25 10:51:07.986 | INFO     | __main__:load_model_and_tokenizer:196 - 加载分词器: Qwen/Qwen2.5-0.5B
-2025-07-25 10:51:09.238 | INFO     | __main__:load_model_and_tokenizer:207 - 加载模型: Qwen/Qwen2.5-0.5B
-2025-07-25 10:51:14.591 | INFO     | __main__:load_model_and_tokenizer:217 - 模型已移动到设备: mps
-2025-07-25 10:51:14.592 | INFO     | __main__:load_model_and_tokenizer:219 - 模型参数量: 494,032,768
-2025-07-25 10:51:14.592 | INFO     | __main__:setup_lora:230 - 配置LoRA参数
-2025-07-25 10:51:14.615 | INFO     | __main__:setup_lora:246 - 可训练参数: 86,016 (0.02%)
-2025-07-25 10:51:14.616 | INFO     | __main__:setup_lora:247 - 总参数量: 494,118,784
-2025-07-25 10:51:14.616 | INFO     | __main__:setup_training_arguments:293 - 检测到MPS设备，使用MPS优化配置
-2025-07-25 10:51:14.617 | INFO     | __main__:load_conversations:76 - 加载了 40 条对话数据
-2025-07-25 10:51:14.618 | INFO     | __main__:load_conversations:76 - 加载了 5 条对话数据
-2025-07-25 10:51:14.618 | INFO     | __main__:load_conversations:76 - 加载了 5 条对话数据
-2025-07-25 10:51:14.618 | INFO     | __main__:prepare_datasets:273 - 训练集: 40 样本
-2025-07-25 10:51:14.618 | INFO     | __main__:prepare_datasets:274 - 验证集: 5 样本
-2025-07-25 10:51:14.618 | INFO     | __main__:prepare_datasets:275 - 测试集: 5 样本
-2025-07-25 10:51:14.630 | INFO     | __main__:setup_training_arguments:366 - 训练器创建完成
-2025-07-25 10:51:14.630 | INFO     | __main__:train:374 - === 开始甄嬛角色模型训练 ===
-2025-07-25 10:51:14.630 | INFO     | __main__:train:378 - 🚀 开始模型训练...
+2025-07-25 20:56:10.586 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./huanhuan_config_fast.yaml
+2025-07-25 20:56:10.586 | ERROR    | __main__:load_config:167 - 配置文件加载失败: [Errno 2] No such file or directory: './huanhuan_config_fast.yaml'
+2025-07-25 20:56:10.586 | ERROR    | __main__:main:410 - 训练过程出错: [Errno 2] No such file or directory: './huanhuan_config_fast.yaml'
+2025-07-25 20:59:52.299 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./training/huanhuan_config_fast.yaml
+2025-07-25 20:59:52.303 | INFO     | __main__:load_config:165 - 配置文件加载成功: ./training/huanhuan_config_fast.yaml
+2025-07-25 20:59:52.323 | INFO     | __main__:setup_device:182 - 使用Apple Silicon MPS设备
+2025-07-25 20:59:52.323 | INFO     | __main__:load_model_and_tokenizer:196 - 加载分词器: Qwen/Qwen2.5-0.5B
+2025-07-25 21:00:32.393 | ERROR    | __main__:main:410 - 训练过程出错: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+2025-07-25 21:06:19.999 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./training/huanhuan_config_fast.yaml
+2025-07-25 21:06:20.003 | INFO     | __main__:load_config:165 - 配置文件加载成功: ./training/huanhuan_config_fast.yaml
+2025-07-25 21:06:20.013 | INFO     | __main__:setup_device:182 - 使用Apple Silicon MPS设备
+2025-07-25 21:06:20.013 | INFO     | __main__:load_model_and_tokenizer:196 - 加载分词器: Qwen/Qwen2.5-0.5B
+2025-07-25 21:06:25.137 | INFO     | __main__:load_model_and_tokenizer:207 - 加载模型: Qwen/Qwen2.5-0.5B
+2025-07-25 21:10:25.298 | INFO     | __main__:load_model_and_tokenizer:217 - 模型已移动到设备: mps
+2025-07-25 21:10:25.299 | INFO     | __main__:load_model_and_tokenizer:219 - 模型参数量: 494,032,768
+2025-07-25 21:10:25.299 | INFO     | __main__:setup_lora:230 - 配置LoRA参数
+2025-07-25 21:10:25.380 | INFO     | __main__:setup_lora:246 - 可训练参数: 86,016 (0.02%)
+2025-07-25 21:10:25.380 | INFO     | __main__:setup_lora:247 - 总参数量: 494,118,784
+2025-07-25 21:10:25.380 | INFO     | __main__:setup_training_arguments:293 - 检测到MPS设备，使用MPS优化配置
+2025-07-25 21:10:25.381 | ERROR    | __main__:load_conversations:78 - 加载数据失败: [Errno 2] No such file or directory: '../data/processed/train.jsonl'
+2025-07-25 21:10:25.381 | ERROR    | __main__:main:410 - 训练过程出错: [Errno 2] No such file or directory: '../data/processed/train.jsonl'
+2025-07-25 21:13:10.485 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./training/huanhuan_config_fast.yaml
+2025-07-25 21:13:10.489 | INFO     | __main__:load_config:165 - 配置文件加载成功: ./training/huanhuan_config_fast.yaml
+2025-07-25 21:13:10.499 | INFO     | __main__:setup_device:182 - 使用Apple Silicon MPS设备
+2025-07-25 21:13:10.499 | INFO     | __main__:load_model_and_tokenizer:196 - 加载分词器: Qwen/Qwen2.5-0.5B
+2025-07-25 21:13:11.567 | INFO     | __main__:load_model_and_tokenizer:207 - 加载模型: Qwen/Qwen2.5-0.5B
+2025-07-25 21:13:13.644 | INFO     | __main__:load_model_and_tokenizer:217 - 模型已移动到设备: mps
+2025-07-25 21:13:13.645 | INFO     | __main__:load_model_and_tokenizer:219 - 模型参数量: 494,032,768
+2025-07-25 21:13:13.645 | INFO     | __main__:setup_lora:230 - 配置LoRA参数
+2025-07-25 21:13:13.715 | INFO     | __main__:setup_lora:246 - 可训练参数: 86,016 (0.02%)
+2025-07-25 21:13:13.715 | INFO     | __main__:setup_lora:247 - 总参数量: 494,118,784
+2025-07-25 21:13:13.715 | INFO     | __main__:setup_training_arguments:293 - 检测到MPS设备，使用MPS优化配置
+2025-07-25 21:13:13.715 | ERROR    | __main__:load_conversations:78 - 加载数据失败: [Errno 2] No such file or directory: '../data/processed/train.jsonl'
+2025-07-25 21:13:13.715 | ERROR    | __main__:main:410 - 训练过程出错: [Errno 2] No such file or directory: '../data/processed/train.jsonl'
+2025-07-25 21:16:52.897 | INFO     | __main__:__init__:146 - HuanHuanTrainer 初始化完成，配置文件: ./training/huanhuan_config_fast.yaml
+2025-07-25 21:16:52.901 | INFO     | __main__:load_config:165 - 配置文件加载成功: ./training/huanhuan_config_fast.yaml
+2025-07-25 21:16:52.911 | INFO     | __main__:setup_device:182 - 使用Apple Silicon MPS设备
+2025-07-25 21:16:52.911 | INFO     | __main__:load_model_and_tokenizer:196 - 加载分词器: Qwen/Qwen2.5-0.5B
+2025-07-25 21:17:00.039 | INFO     | __main__:load_model_and_tokenizer:207 - 加载模型: Qwen/Qwen2.5-0.5B
+2025-07-25 21:17:01.784 | INFO     | __main__:load_model_and_tokenizer:217 - 模型已移动到设备: mps
+2025-07-25 21:17:01.784 | INFO     | __main__:load_model_and_tokenizer:219 - 模型参数量: 494,032,768
+2025-07-25 21:17:01.784 | INFO     | __main__:setup_lora:230 - 配置LoRA参数
+2025-07-25 21:17:01.854 | INFO     | __main__:setup_lora:246 - 可训练参数: 86,016 (0.02%)
+2025-07-25 21:17:01.854 | INFO     | __main__:setup_lora:247 - 总参数量: 494,118,784
+2025-07-25 21:17:01.854 | INFO     | __main__:setup_training_arguments:293 - 检测到MPS设备，使用MPS优化配置
+2025-07-25 21:17:01.858 | INFO     | __main__:load_conversations:76 - 加载了 2983 条对话数据
+2025-07-25 21:17:01.859 | INFO     | __main__:load_conversations:76 - 加载了 372 条对话数据
+2025-07-25 21:17:01.860 | INFO     | __main__:load_conversations:76 - 加载了 374 条对话数据
+2025-07-25 21:17:01.860 | INFO     | __main__:prepare_datasets:273 - 训练集: 2983 样本
+2025-07-25 21:17:01.860 | INFO     | __main__:prepare_datasets:274 - 验证集: 372 样本
+2025-07-25 21:17:01.860 | INFO     | __main__:prepare_datasets:275 - 测试集: 374 样本
+2025-07-25 21:17:01.869 | INFO     | __main__:setup_training_arguments:366 - 训练器创建完成
+2025-07-25 21:17:01.869 | INFO     | __main__:train:374 - === 开始甄嬛角色模型训练 ===
+2025-07-25 21:17:01.869 | INFO     | __main__:train:378 - 🚀 开始模型训练...
+2025-07-25 22:17:56.259 | INFO     | __main__:train:382 - 💾 保存最终模型...
+2025-07-25 22:17:58.472 | INFO     | __main__:train:386 - === 训练完成 ===
+2025-07-25 22:17:58.473 | INFO     | __main__:train:387 - 📁 模型保存在: ../training/models/huanhuan_fast
+2025-07-25 22:17:58.473 | INFO     | __main__:main:406 - 🎉 甄嬛角色模型训练完成！
+2025-07-25 22:17:58.473 | INFO     | __main__:main:407 - 📁 接下来可以运行部署脚本: python deployment/huanhuan_deploy.py

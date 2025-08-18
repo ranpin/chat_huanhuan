@@ -132,8 +132,8 @@ class HuanHuanTrainer:
     """
     甄嬛角色模型训练器
     """
-    
-    def __init__(self, config_path: str = "./huanhuan_config_fast.yaml"):
+
+    def __init__(self, config_path: str = "./training/huanhuan_config_fast.yaml"):
         self.config_path = config_path
         self.config = None
         self.device = None
@@ -171,7 +171,7 @@ class HuanHuanTrainer:
         """
         设置计算设备
         """
-        device_config = self.config['system']['device']
+        device_config = self.config['system']['device'] # type: ignore
         
         if device_config == 'auto':
             if torch.cuda.is_available():
@@ -191,7 +191,7 @@ class HuanHuanTrainer:
         """
         加载模型和分词器
         """
-        model_name = self.config['model']['base_model']
+        model_name = self.config['model']['base_model'] # type: ignore
         
         logger.info(f"加载分词器: {model_name}")
         self.tokenizer = AutoTokenizer.from_pretrained(
@@ -404,7 +404,7 @@ def main():
         train_result = trainer.train()
         
         logger.info("🎉 甄嬛角色模型训练完成！")
-        logger.info("📁 接下来可以使用 Ollama 部署模型: ollama create huanhuan -f deployment/Modelfile.huanhuan")
+        logger.info("📁 接下来可以运行部署脚本: python deployment/huanhuan_deploy.py")
         
     except Exception as e:
         logger.error(f"训练过程出错: {e}")
