@@ -42,9 +42,9 @@ lora:
 
 # 数据配置
 data:
-  train_file: "../data/processed/train.jsonl"
-  validation_file: "../data/processed/validation.jsonl"
-  test_file: "../data/processed/test.jsonl"
+  train_file: "./data/processed/train.jsonl"
+  validation_file: "./data/processed/validation.jsonl"
+  test_file: "./data/processed/test.jsonl"
   max_seq_length: 128                         # 极小序列长度以节省内存
   preprocessing_num_workers: 0                # 禁用多线程预处理
 
