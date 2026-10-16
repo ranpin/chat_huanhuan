@@ -5,9 +5,10 @@
 ## 📁 项目结构
 
 ```
-ollama_baseline/
+chat_huanhuan/
 ├── application/          # Web应用界面
-│   └── huanhuan_web.py  # Streamlit对话界面
+│   ├── huanhuan_web.py  # Streamlit对话界面
+│   └── chat_history/    # 对话历史存储
 ├── dataScripts/         # 数据处理脚本
 │   ├── huanhuan_data_prepare.py  # 训练数据预处理
 │   └── download_data.py          # 数据集下载
@@ -17,16 +18,26 @@ ollama_baseline/
 │   └── huanhuan_fast_lora.gguf   # LoRA权重文件
 ├── mcp_server/          # MCP服务器
 │   ├── __init__.py      # 服务器入口
+│   ├── __main__.py      # python -m mcp_server 入口
 │   └── server.py        # MCP服务器核心逻辑
 ├── training/            # 模型训练
 │   ├── huanhuan_train.py        # 训练脚本
 │   ├── huanhuan_config.yaml     # 训练配置
 │   ├── huanhuan_config_fast.yaml # 快速训练配置
+│   ├── sync_monitor.py          # 训练资源/进度监控
+│   ├── models/                  # LoRA训练产物
 │   └── logs/                    # 训练日志
 ├── data/               # 数据目录
+│   ├── raw/            # 原始数据（huanhuan.json）
+│   └── processed/      # 处理后的 train/validation/test.jsonl
+├── llama.cpp/          # git submodule，用于 LoRA 转 GGUF
+├── logs/               # 运行日志
+├── huanhuan_web.py     # 与 application/ 下同名文件的副本
 ├── requirements.txt    # 项目依赖
 └── README.md          # 项目说明
 ```
+
+> `llama.cpp` 是 git submodule，克隆后需要执行 `git submodule update --init --recursive` 拉取。
 
 ## 🚀 功能模块
 
@@ -100,4 +111,66 @@ source huanhuan_env/bin/activate  # macOS/Linux
 # 4. 使用uv安装依赖（比pip快10-100倍）
 uv pip install -r requirements.txt
 ```
+
+## 🏃 运行
+
+以下命令均在仓库根目录执行，需要先启动 Ollama 服务（`ollama serve`，默认 `http://localhost:11434`）。
+
+### 1. 部署甄嬛模型到 Ollama
+
+`deployment/Modelfile.huanhuan` 基于 `qwen2.5:0.5b` 加载 LoRA 权重 `huanhuan_fast_lora.gguf`：
+
+```bash
+# 拉取基础模型
+ollama pull qwen2.5:0.5b
+
+# 创建甄嬛模型（Modelfile 里的 ADAPTER 是相对路径，需在其所在目录执行）
+cd deployment
+ollama create huanhuan-qwen -f Modelfile.huanhuan
+cd ..
+
+# 命令行验证
+ollama run huanhuan-qwen
+```
+
+### 2. Web 对话界面
+
+```bash
+streamlit run application/huanhuan_web.py
+# 指定端口
+streamlit run application/huanhuan_web.py --server.port 8501
+```
+
+界面默认选用模型 `huanhuan-qwen`，若 Ollama 里没有该名称，可在下拉框中改选已部署的模型。
+
+### 3. MCP 服务器
+
+```bash
+python -m mcp_server                      # 默认 stdio
+python -m mcp_server sse                  # 或 sse / streamable-http
+```
+
+模型名与地址通过环境变量配置：`HUANHUAN_MODEL`（默认 `huanhuan_fast`）、`OLLAMA_HOST`（默认 `http://localhost:11434`）。
+注意 MCP 的默认模型名与 Web 界面不同，部署成 `huanhuan-qwen` 后需要显式指定：
+
+```bash
+HUANHUAN_MODEL=huanhuan-qwen python -m mcp_server
+```
+
+### 4. 训练
+
+```bash
+# 下载数据集（来自 datawhalechina/self-llm）
+python dataScripts/download_data.py
+
+# 数据预处理
+python dataScripts/huanhuan_data_prepare.py
+
+# LoRA 微调（默认读取 ./training/huanhuan_config_fast.yaml，故需在仓库根目录执行）
+python training/huanhuan_train.py
+```
+
+基础模型为 `Qwen/Qwen2.5-0.5B`，训练产物输出到 `training/models/`。
+转成 Ollama 可用的 GGUF 需要 `llama.cpp` 子模块里的 `convert_lora_to_gguf.py`。
+
 
